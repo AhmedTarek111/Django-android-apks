@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,33 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar bg-dark border-bottom border-body mb-5" data-bs-theme="dark">
-        <div class="container-fluid d-flex justify-content-center">
-          <a class="navbar-brand" href="#">Android Apks Management</a>
-         
-         
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div>
+                <a class="btn btn-outline-primary me-2" href="{% url 'home' %}">Home</a>
+                <a class="btn btn-outline-danger" href="{% url 'logout' %}">Logout</a>
+            </div>
+            
+            <div class="mx-auto">
+                <a class="navbar-brand" href="#">App Management</a>
+            </div>
+
+            <div>
+                <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center">
+                    {% csrf_token %}
+                    <select name="language" class="form-select form-select-sm me-2" aria-label="Select language">
+                        <option value="en-us" {% if request.LANGUAGE_CODE == 'en-us' %} selected{% endif %}>English</option>
+                        <option value="fr" {% if request.LANGUAGE_CODE == 'fr' %} selected{% endif %}>French</option>
+                    </select>
+                    <input type="submit" class="btn btn-outline-secondary btn-sm" value="Change">
+                </form>
+            </div>
         </div>
-      </nav>
+    </nav>
+
     {% block content %}
-      
     {% endblock content %}
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
