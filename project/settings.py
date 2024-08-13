@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'django_bootstrap5',
     'management',
+    "modeltranslation ",
 ]
 
 MIDDLEWARE = [
@@ -114,7 +115,13 @@ USE_I18N = True
 
 USE_TZ = True
 
+gettext = lambda s: s
+LANGUAGES = (
+    ('de', gettext('German')),
+    ('fr', gettext('French')),
+)
 
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
