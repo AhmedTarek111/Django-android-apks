@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 16:08+0300\n"
+"POT-Creation-Date: 2024-08-13 17:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: management/models.py:7
 msgid "Name"
 msgstr "Nom"
@@ -29,11 +30,11 @@ msgstr "Téléchargé par"
 msgid "APK File"
 msgstr "Fichier APK"
 
-#: management/models.py:10
+#: management/models.py:10 management/templates/app/app_Detail.html:22
 msgid "First Screenshot"
 msgstr "Première capture d'écran"
 
-#: management/models.py:11
+#: management/models.py:11 management/templates/app/app_Detail.html:27
 msgid "Second Screenshot"
 msgstr "deuxième capture d'écran"
 
@@ -52,6 +53,82 @@ msgstr "Créé à"
 #: management/models.py:15
 msgid "Updated At"
 msgstr "Mis à jour à"
+
+#: management/templates/app/app_Detail.html:9
+#, fuzzy
+#| msgid "APK File"
+msgid "APK Details"
+msgstr "Fichier APK"
+
+#: management/templates/app/app_Detail.html:12
+#, fuzzy
+#| msgid "Name"
+msgid "Name:"
+msgstr "Nom"
+
+#: management/templates/app/app_Detail.html:13
+#, fuzzy
+#| msgid "Uploaded by"
+msgid "Uploaded By:"
+msgstr "Téléchargé par"
+
+#: management/templates/app/app_Detail.html:16
+#, fuzzy
+#| msgid "APK File"
+msgid "APK File:"
+msgstr "Fichier APK"
+
+#: management/templates/app/app_Detail.html:17
+msgid "Download APK"
+msgstr "Télécharger APK"
+
+#: management/templates/app/app_Detail.html:21
+#, fuzzy
+#| msgid "First Screenshot"
+msgid "First Screenshot:"
+msgstr "Première capture d'écran"
+
+#: management/templates/app/app_Detail.html:26
+#, fuzzy
+#| msgid "Second Screenshot"
+msgid "Second Screenshot:"
+msgstr "deuxième capture d'écran"
+
+#: management/templates/app/app_Detail.html:31
+#, fuzzy
+#| msgid "Video Recording"
+msgid "Video Recording:"
+msgstr "Enregistrement vidéo"
+
+#: management/templates/app/app_Detail.html:34
+msgid "Your browser does not support the video tag."
+msgstr "votre navigateur ne prend pas en charge la balise vidéo."
+
+#: management/templates/app/app_Detail.html:39
+#, fuzzy
+#| msgid "UI Hierarchy"
+msgid "UI Hierarchy:"
+msgstr "Hiérarchie de l'interface utilisateur"
+
+#: management/templates/app/app_Detail.html:44
+#, fuzzy
+#| msgid "Created At"
+msgid "Created At:"
+msgstr "Créé à"
+
+#: management/templates/app/app_Detail.html:45
+#, fuzzy
+#| msgid "Updated At"
+msgid "Updated At:"
+msgstr "Mis à jour à"
+
+#: management/templates/app/app_Detail.html:49
+msgid "Edit"
+msgstr "Modifier"
+
+#: management/templates/app/app_Detail.html:50
+msgid "Delete"
+msgstr "Supprimer"
 
 #: project/settings.py:120
 msgid "English"

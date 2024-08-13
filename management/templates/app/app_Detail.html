@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header text-center">
+            <h4>{% trans "APK Details" %}</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{% trans "Name:" %} {{ apk.name }}</h5>
+            <p class="card-text"><strong>{% trans "Uploaded By:" %}</strong> {{ apk.uploaded_by.username }}</p>
+            
+            <div class="mb-3">
+                <strong>{% trans "APK File:" %}</strong>
+                <a href="{{ apk.apk_file.url }}" class="btn btn-primary btn-sm" download>{% trans "Download APK" %}</a>
+            </div>
+            
+            <div class="mb-3">
+                <strong>{% trans "First Screenshot:" %}</strong><br>
+                <img src="{{ apk.first_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+            </div>
+
+            <div class="mb-3">
+                <strong>{% trans "Second Screenshot:" %}</strong><br>
+                <img src="{{ apk.second_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "Second Screenshot" %}">
+            </div>
+
+            <div class="mb-3">
+                <strong>{% trans "Video Recording:" %}</strong><br>
+                <video class="w-100" controls>
+                    <source src="{{ apk.video_recording.url }}" type="video/mp4">
+                    {% trans "Your browser does not support the video tag." %}
+                </video>
+            </div>
+
+            <div class="mb-3">
+                <strong>{% trans "UI Hierarchy:" %}</strong>
+                <p>{{ apk.ui_hierarchy|linebreaks }}</p>
+            </div>
+
+            <div class="mb-3">
+                <strong>{% trans "Created At:" %}</strong> {{ apk.created_at|date:"F j, Y, g:i a" }}<br>
+                <strong>{% trans "Updated At:" %}</strong> {{ apk.updated_at|date:"F j, Y, g:i a" }}
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            <a href="{% url 'app-update' apk.pk %}" class="btn btn-warning">{% trans "Edit" %}</a>
+            <a href="{% url 'app-delete' apk.pk %}" class="btn btn-danger">{% trans "Delete" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
