@@ -1,0 +1,41 @@
+services:
+  backend:
+    container_name: django-backend
+    build: .
+    command: >
+      bash -c "
+      python manage.py makemigrations &&
+      python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - sqldb
+    restart: on-failure
+    environment:
+      - DB_NAME=MYSQL
+      - DB_USER=root
+      - DB_PASSWORD=ahmed
+      - DB_HOST=sqldb
+      - DB_PORT=3306
+    networks:
+      - backend-network
+
+  sqldb:
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_DATABASE=MYSQL
+      - MYSQL_ROOT_PASSWORD=ahmed
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend-network
+
+volumes:
+  mysql_data:
+
+networks:
+  backend-network:

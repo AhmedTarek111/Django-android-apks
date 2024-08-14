@@ -78,16 +78,31 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# this db settings for the local 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'django-db',  
+#         'USER': 'root',        
+#         'PASSWORD': 'ahmed',    
+#         'HOST': 'localhost',            
+#         'PORT': '3306',                 
+#         }
+#     }
+
+# this db settings for the docker 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django-db',  
-        'USER': 'root',        
-        'PASSWORD': 'ahmed',    
-        'HOST': 'localhost',            
-        'PORT': '3306',                 
-        }
+        'NAME': 'MYSQL',  
+        'USER': 'root',  
+        'PASSWORD': 'ahmed',  
+        'HOST': 'sqldb',  
+        'PORT': '3306',  
     }
+}
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
