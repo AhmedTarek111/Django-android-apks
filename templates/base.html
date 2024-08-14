@@ -24,9 +24,9 @@
                         Accessibility
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                      <li><a href="#" id="increase-font" class="dropdown-item">Increase Font Size (A+)</a></li>
-                      <li><a href="#" id="decrease-font" class="dropdown-item">Decrease Font Size (A-)</a></li>
-                      <li><a href="#" id="toggle-contrast" class="dropdown-item">Toggle Contrast</a></li>
+                      <li><a  id="increase-font" class="dropdown-item">Increase Font Size (A+)</a></li>
+                      <li><a  id="decrease-font" class="dropdown-item">Decrease Font Size (A-)</a></li>
+                      <li><a  id="toggle-contrast" class="dropdown-item">Toggle Contrast</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,11 +57,9 @@
     <script>
         const body = document.body;
 
-        // Font size adjustment
         document.getElementById('increase-font').onclick = () => body.style.fontSize = '20px';
         document.getElementById('decrease-font').onclick = () => body.style.fontSize = '14px';
 
-        // Contrast mode toggle
         document.getElementById('toggle-contrast').onclick = () => body.classList.toggle('high-contrast');
     </script>
 </body>
