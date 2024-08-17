@@ -1,4 +1,6 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,8 +43,8 @@
                 <form action="{% url 'set_language' %}" method="post" class="d-flex align-items-center ms-3">
                     {% csrf_token %}
                     <select name="language" class="form-select form-select-sm me-2" aria-label="Select language">
-                        <option value="en-us" {% if request.LANGUAGE_CODE == 'en-us' %} selected{% endif %}>{% trans "English" %}</option>
-                        <option value="fr" {% if request.LANGUAGE_CODE == 'fr' %} selected{% endif %}>{% trans "French" %}</option>
+                        <option value="en-us" {% if LANGUAGE_CODE == 'en-us' %} selected{% endif %}>{% trans "English" %}</option>
+                        <option value="fr" {% if LANGUAGE_CODE == 'fr' %} selected{% endif %}>{% trans "French" %}</option>
                     </select>
                     <input type="submit" class="btn btn-outline-secondary btn-sm" value="Change">
                 </form>
