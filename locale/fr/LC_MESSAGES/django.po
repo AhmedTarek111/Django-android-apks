@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-17 19:12+0300\n"
+"POT-Creation-Date: 2024-08-17 20:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "S'inscrire"
 msgid "Are you sure to Logout"
 msgstr "Etes-vous sûr de vous déconnecter"
 
-#: accounts/templates/registration/logout.html:9 templates/base.html:21
+#: accounts/templates/registration/logout.html:9 templates/base.html:23
 msgid "Logout"
 msgstr "Déconnexion"
 
@@ -51,21 +51,27 @@ msgstr "Téléchargé par"
 msgid "APK File"
 msgstr "Fichier APK"
 
-#: management/models.py:10 management/templates/app/app_Detail.html:21
-#: management/templates/app/app_Detail.html:22
+#: management/models.py:10 management/templates/app/app_Detail.html:22
+#: management/templates/app/app_Detail.html:23
+#: management/templates/app/app_Detail.html:25
+#: management/templates/app/app_Detail.html:26
 msgid "First Screenshot"
 msgstr "Première capture d'écran"
 
-#: management/models.py:11 management/templates/app/app_Detail.html:26
-#: management/templates/app/app_Detail.html:27
+#: management/models.py:11 management/templates/app/app_Detail.html:33
+#: management/templates/app/app_Detail.html:34
+#: management/templates/app/app_Detail.html:36
+#: management/templates/app/app_Detail.html:37
 msgid "Second Screenshot"
 msgstr "deuxième capture d'écran"
 
-#: management/models.py:12 management/templates/app/app_Detail.html:31
+#: management/models.py:12 management/templates/app/app_Detail.html:43
+#: management/templates/app/app_Detail.html:49
+#: management/templates/app/app_Detail.html:50
 msgid "Video Recording"
 msgstr "Enregistrement vidéo"
 
-#: management/models.py:13 management/templates/app/app_Detail.html:39
+#: management/models.py:13 management/templates/app/app_Detail.html:55
 msgid "UI Hierarchy"
 msgstr "Hiérarchie de l'interface utilisateur"
 
@@ -73,12 +79,12 @@ msgstr "Hiérarchie de l'interface utilisateur"
 msgid "Screen Changed"
 msgstr "écran changé"
 
-#: management/models.py:15 management/templates/app/app_Detail.html:44
+#: management/models.py:15 management/templates/app/app_Detail.html:62
 #: management/templates/app/home.html:26
 msgid "Created At"
 msgstr "Créé à"
 
-#: management/models.py:16 management/templates/app/app_Detail.html:45
+#: management/models.py:16 management/templates/app/app_Detail.html:63
 #: management/templates/app/home.html:27
 msgid "Updated At"
 msgstr "Mis à jour à"
@@ -90,27 +96,28 @@ msgid "APK Details"
 msgstr "Fichier APK"
 
 #: management/templates/app/app_Detail.html:13
+#: management/templates/app/home.html:24
 #, fuzzy
 #| msgid "Uploaded by"
-msgid "Uploaded By:"
+msgid "Uploaded By"
 msgstr "Téléchargé par"
 
 #: management/templates/app/app_Detail.html:17
 msgid "Download APK"
 msgstr "Télécharger APK"
 
-#: management/templates/app/app_Detail.html:34
+#: management/templates/app/app_Detail.html:46
 msgid "Your browser does not support the video tag."
 msgstr "votre navigateur ne prend pas en charge la balise vidéo."
 
-#: management/templates/app/app_Detail.html:49
+#: management/templates/app/app_Detail.html:67
 #: management/templates/app/home.html:43
 msgid "Edit"
 msgstr "Modifier"
 
-#: management/templates/app/app_Detail.html:50
+#: management/templates/app/app_Detail.html:68
 #: management/templates/app/app_delete.html:11
-#: management/templates/app/home.html:44 management/templates/app/home.html:47
+#: management/templates/app/home.html:44
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -138,17 +145,11 @@ msgstr "Liste des applications"
 msgid "Add App"
 msgstr "Ajouter une application"
 
-#: management/templates/app/home.html:24
-#, fuzzy
-#| msgid "Uploaded by"
-msgid "Uploaded By"
-msgstr "Téléchargé par"
-
 #: management/templates/app/home.html:28
 msgid "Actions"
 msgstr "Actes"
 
-#: management/templates/app/home.html:29
+#: management/templates/app/home.html:29 management/templates/app/home.html:47
 msgid "Test"
 msgstr "Test"
 
@@ -164,37 +165,42 @@ msgstr "Aucune application trouvée"
 msgid " please login first"
 msgstr "veuillez d'abord vous connecter"
 
-#: project/settings.py:139 templates/base.html:44
+#: project/settings.py:139 templates/base.html:46
 msgid "English"
 msgstr "Anglaise"
 
-#: project/settings.py:140 templates/base.html:45
+#: project/settings.py:140 templates/base.html:47
 msgid "French"
 msgstr "Français"
 
-#: templates/base.html:8
+#: templates/base.html:10
 msgid "Application Management"
 msgstr "Gestion des applications"
 
-#: templates/base.html:20
+#: templates/base.html:22
 msgid "Home"
 msgstr "Page d'accueil"
 
-#: templates/base.html:24
+#: templates/base.html:26
 msgid "Accessibility"
 msgstr "Accessibilité"
 
-#: templates/base.html:27
+#: templates/base.html:29
 msgid "Increase Font Size"
 msgstr "Augmenter la taille de la police"
 
-#: templates/base.html:28 templates/base.html:29
+#: templates/base.html:30 templates/base.html:31
 msgid "Decrease Font Size"
 msgstr "Réduire la taille de la police"
 
-#: templates/base.html:35
+#: templates/base.html:37
 msgid "App Management"
 msgstr "Gestion des applications"
+
+#, fuzzy
+#~| msgid "Uploaded by"
+#~ msgid "Uploaded By:"
+#~ msgstr "Téléchargé par"
 
 #, fuzzy
 #~| msgid "Name"
