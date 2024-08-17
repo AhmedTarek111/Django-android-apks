@@ -1,30 +1,32 @@
 {% extends "base.html" %}
+{% load i18n %}
+
 {% block content %}
   
 {% if user.is_authenticated %}
 
     <div class="container">
-        <h2 class="text-center ms-5 "> Welcome {{ user.username }}</h2>
+        <h2 class="text-center ms-5 "> {% trans "Welcome" %} {{ user.username }}</h2>
         <div class="container mt-5">
-            <h2 class="text-center mb-4">My Apps</h2>
+            <h2 class="text-center mb-4">{% trans "My Apps" %}</h2>
             <div class="card shadow-sm">
                 <div class="card-header bg-secondary text-white">
                     <div class="d-flex justify-content-between">
-                        <h5 class="mb-0">App List</h5>
-                        <a href="{% url 'app-create' %}" class="btn btn-primary btn-sm">Add App</a>
+                        <h5 class="mb-0">{% trans "App List" %}</h5>
+                        <a href="{% url 'app-create' %}" class="btn btn-primary btn-sm">{% trans "Add App" %}</a>
                     </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped table-bordered">
                         <thead class="thead-dark">
                             <tr>
-                                <th>Name</th>
-                                <th>Uploaded By</th>
-                                <th>Screen Changed</th>
-                                <th>Created At</th>
-                                <th>Updated At</th>
-                                <th>Actions</th>
-                                <th>Test</th>
+                                <th> {% trans "Name" %}</th>
+                                <th>{% trans "Uploaded By" %}</th>
+                                <th>{% trans "Screen Changed" %}</th>
+                                <th>{% trans "Created At" %}</th>
+                                <th>{% trans "Updated At" %}</th>
+                                <th>{% trans "Actions" %}</th>
+                                <th>{% trans "Test" %}</th>
                                
                             </tr>
                         </thead>
@@ -37,17 +39,17 @@
                                 <td>{{ app.created_at|date:"Y-m-d H:i" }}</td>
                                 <td>{{ app.updated_at|date:"Y-m-d H:i" }}</td>
                                 <td>
-                                    <a href="{% url 'app-detail' app.id %}" class="btn btn-info btn-sm">View</a>
-                                    <a href="{% url 'app-update' app.id %}" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="{% url 'app-delete' app.id %}" class="btn btn-danger btn-sm" >Delete</a>
+                                    <a href="{% url 'app-detail' app.id %}" class="btn btn-info btn-sm">{% trans "View" %}</a>
+                                    <a href="{% url 'app-update' app.id %}" class="btn btn-warning btn-sm">{% trans "Edit" %}</a>
+                                    <a href="{% url 'app-delete' app.id %}" class="btn btn-danger btn-sm" >{% trans "Delete" %}</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-success btn-sm" >Run</a>
+                                    <a href="{% url 'app-test' app.id%}" class="btn btn-success btn-sm" >{% trans "Test" %}</a>
                                 </td>
                             </tr>
                             {% empty %}
                             <tr>
-                                <td class="text-center">No apps found.</td>
+                                <td class="text-center">{% trans "No apps found" %}.</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -58,7 +60,7 @@
     </div>
 {% else %}
     <div class="container text-center">
-        please login first 
+       {% trans " please login first" %} 
     </div>
     
 {% endif %}

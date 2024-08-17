@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -9,40 +9,58 @@
             <h4>{% trans "APK Details" %}</h4>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{% trans "Name:" %} {{ apk.name }}</h5>
-            <p class="card-text"><strong>{% trans "Uploaded By:" %}</strong> {{ apk.uploaded_by.username }}</p>
+            <h5 class="card-title">{% trans "Name" %} : {{ apk.name }}</h5>
+            <p class="card-text"><strong>{% trans "Uploaded By" %}:</strong> {{ apk.uploaded_by.username }}</p>
             
             <div class="mb-3">
-                <strong>{% trans "APK File:" %}</strong>
-                <a href="{{ apk.apk_file.url }}" class="btn btn-primary btn-sm" download>{% trans "Download APK" %}</a>
+                <strong>{% trans "APK File" %} :</strong>
+                <a href="{{ apk.apk_file }}" class="btn btn-primary btn-sm" download>{% trans "Download APK" %}</a>
             </div>
             
             <div class="mb-3">
-                <strong>{% trans "First Screenshot:" %}</strong><br>
-                <img src="{{ apk.first_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+                {% if  apk.first_screen_shot %}  
+                    <strong>{% trans "First Screenshot" %}:</strong><br>
+                    <img src="{{ apk.first_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+                {% else %}
+                    <strong>{% trans "First Screenshot" %}:</strong><br>
+                    <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+                {% endif %}
+
             </div>
 
             <div class="mb-3">
-                <strong>{% trans "Second Screenshot:" %}</strong><br>
+                {% if apk.second_screen_shot %}
+                <strong>{% trans "Second Screenshot" %}:</strong><br>
                 <img src="{{ apk.second_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "Second Screenshot" %}">
+                {% else %}
+                <strong>{% trans "Second Screenshot" %}:</strong><br>
+                <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded" alt="{% trans "Second Screenshot" %}">
+                {% endif %}
             </div>
 
             <div class="mb-3">
-                <strong>{% trans "Video Recording:" %}</strong><br>
+                {% if apk.video_recording %}
+                <strong>{% trans "Video Recording" %}:</strong><br>
                 <video class="w-100" controls>
                     <source src="{{ apk.video_recording.url }}" type="video/mp4">
                     {% trans "Your browser does not support the video tag." %}
                 </video>
+                {% else %}
+                <strong>{% trans "Video Recording" %}:</strong><br>
+                <img src="{% static 'site-static-imgs/no-video-available.webp' %}" class="img-fluid rounded" alt="{% trans "Video Recording" %}">
+                {% endif %}
             </div>
 
             <div class="mb-3">
-                <strong>{% trans "UI Hierarchy:" %}</strong>
-                <p>{{ apk.ui_hierarchy|linebreaks }}</p>
+                <strong>{% trans "UI Hierarchy" %} :</strong>
+                <div style="max-height: 200px; overflow-y: auto; border: 1px solid black; padding: 10px;">
+                    <p>{{ apk.ui_hierarchy|linebreaks }}</p>
+                </div>
             </div>
 
             <div class="mb-3">
-                <strong>{% trans "Created At:" %}</strong> {{ apk.created_at|date:"F j, Y, g:i a" }}<br>
-                <strong>{% trans "Updated At:" %}</strong> {{ apk.updated_at|date:"F j, Y, g:i a" }}
+                <strong>{% trans "Created At" %} :</strong> {{ apk.created_at|date:"F j, Y, g:i a" }}<br>
+                <strong>{% trans "Updated At" %} :</strong> {{ apk.updated_at|date:"F j, Y, g:i a" }}
             </div>
         </div>
         <div class="card-footer text-end">

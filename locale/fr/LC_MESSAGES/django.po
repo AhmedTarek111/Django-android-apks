@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 18:35+0300\n"
+"POT-Creation-Date: 2024-08-17 19:12+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,28 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: management/models.py:7
+#: accounts/templates/registration/login.html:12
+msgid "Login"
+msgstr "Se connecter"
+
+#: accounts/templates/registration/login.html:21
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: accounts/templates/registration/logout.html:6
+msgid "Are you sure to Logout"
+msgstr "Etes-vous sûr de vous déconnecter"
+
+#: accounts/templates/registration/logout.html:9 templates/base.html:21
+msgid "Logout"
+msgstr "Déconnexion"
+
+#: accounts/templates/registration/logout.html:10
+msgid "Cancel"
+msgstr "Annuler"
+
+#: management/models.py:7 management/templates/app/app_Detail.html:12
+#: management/templates/app/home.html:23
 msgid "Name"
 msgstr "Nom"
 
@@ -26,35 +47,39 @@ msgstr "Nom"
 msgid "Uploaded by"
 msgstr "Téléchargé par"
 
-#: management/models.py:9
+#: management/models.py:9 management/templates/app/app_Detail.html:16
 msgid "APK File"
 msgstr "Fichier APK"
 
-#: management/models.py:10 management/templates/app/app_Detail.html:22
+#: management/models.py:10 management/templates/app/app_Detail.html:21
+#: management/templates/app/app_Detail.html:22
 msgid "First Screenshot"
 msgstr "Première capture d'écran"
 
-#: management/models.py:11 management/templates/app/app_Detail.html:27
+#: management/models.py:11 management/templates/app/app_Detail.html:26
+#: management/templates/app/app_Detail.html:27
 msgid "Second Screenshot"
 msgstr "deuxième capture d'écran"
 
-#: management/models.py:12
+#: management/models.py:12 management/templates/app/app_Detail.html:31
 msgid "Video Recording"
 msgstr "Enregistrement vidéo"
 
-#: management/models.py:13
+#: management/models.py:13 management/templates/app/app_Detail.html:39
 msgid "UI Hierarchy"
 msgstr "Hiérarchie de l'interface utilisateur"
 
-#: management/models.py:14
+#: management/models.py:14 management/templates/app/home.html:25
 msgid "Screen Changed"
 msgstr "écran changé"
 
-#: management/models.py:15
+#: management/models.py:15 management/templates/app/app_Detail.html:44
+#: management/templates/app/home.html:26
 msgid "Created At"
 msgstr "Créé à"
 
-#: management/models.py:16
+#: management/models.py:16 management/templates/app/app_Detail.html:45
+#: management/templates/app/home.html:27
 msgid "Updated At"
 msgstr "Mis à jour à"
 
@@ -64,80 +89,149 @@ msgstr "Mis à jour à"
 msgid "APK Details"
 msgstr "Fichier APK"
 
-#: management/templates/app/app_Detail.html:12
-#, fuzzy
-#| msgid "Name"
-msgid "Name:"
-msgstr "Nom"
-
 #: management/templates/app/app_Detail.html:13
 #, fuzzy
 #| msgid "Uploaded by"
 msgid "Uploaded By:"
 msgstr "Téléchargé par"
 
-#: management/templates/app/app_Detail.html:16
-#, fuzzy
-#| msgid "APK File"
-msgid "APK File:"
-msgstr "Fichier APK"
-
 #: management/templates/app/app_Detail.html:17
 msgid "Download APK"
 msgstr "Télécharger APK"
-
-#: management/templates/app/app_Detail.html:21
-#, fuzzy
-#| msgid "First Screenshot"
-msgid "First Screenshot:"
-msgstr "Première capture d'écran"
-
-#: management/templates/app/app_Detail.html:26
-#, fuzzy
-#| msgid "Second Screenshot"
-msgid "Second Screenshot:"
-msgstr "deuxième capture d'écran"
-
-#: management/templates/app/app_Detail.html:31
-#, fuzzy
-#| msgid "Video Recording"
-msgid "Video Recording:"
-msgstr "Enregistrement vidéo"
 
 #: management/templates/app/app_Detail.html:34
 msgid "Your browser does not support the video tag."
 msgstr "votre navigateur ne prend pas en charge la balise vidéo."
 
-#: management/templates/app/app_Detail.html:39
-#, fuzzy
-#| msgid "UI Hierarchy"
-msgid "UI Hierarchy:"
-msgstr "Hiérarchie de l'interface utilisateur"
-
-#: management/templates/app/app_Detail.html:44
-#, fuzzy
-#| msgid "Created At"
-msgid "Created At:"
-msgstr "Créé à"
-
-#: management/templates/app/app_Detail.html:45
-#, fuzzy
-#| msgid "Updated At"
-msgid "Updated At:"
-msgstr "Mis à jour à"
-
 #: management/templates/app/app_Detail.html:49
+#: management/templates/app/home.html:43
 msgid "Edit"
 msgstr "Modifier"
 
 #: management/templates/app/app_Detail.html:50
+#: management/templates/app/app_delete.html:11
+#: management/templates/app/home.html:44 management/templates/app/home.html:47
 msgid "Delete"
 msgstr "Supprimer"
 
-#: project/settings.py:120
+#: management/templates/app/app_create.html:16
+msgid "Add New APK"
+msgstr "Ajouter un nouveau APK"
+
+#: management/templates/app/app_delete.html:8
+msgid "Are you sure to Delete"
+msgstr "Etes-vous sûr de vouloir supprimer"
+
+#: management/templates/app/home.html:9
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: management/templates/app/home.html:11
+msgid "My Apps"
+msgstr "Mes applications"
+
+#: management/templates/app/home.html:15
+msgid "App List"
+msgstr "Liste des applications"
+
+#: management/templates/app/home.html:16
+msgid "Add App"
+msgstr "Ajouter une application"
+
+#: management/templates/app/home.html:24
+#, fuzzy
+#| msgid "Uploaded by"
+msgid "Uploaded By"
+msgstr "Téléchargé par"
+
+#: management/templates/app/home.html:28
+msgid "Actions"
+msgstr "Actes"
+
+#: management/templates/app/home.html:29
+msgid "Test"
+msgstr "Test"
+
+#: management/templates/app/home.html:42
+msgid "View"
+msgstr "Voir"
+
+#: management/templates/app/home.html:52
+msgid "No apps found"
+msgstr "Aucune application trouvée"
+
+#: management/templates/app/home.html:63
+msgid " please login first"
+msgstr "veuillez d'abord vous connecter"
+
+#: project/settings.py:139 templates/base.html:44
 msgid "English"
 msgstr "Anglaise"
 
-#: project/settings.py:121
+#: project/settings.py:140 templates/base.html:45
 msgid "French"
 msgstr "Français"
+
+#: templates/base.html:8
+msgid "Application Management"
+msgstr "Gestion des applications"
+
+#: templates/base.html:20
+msgid "Home"
+msgstr "Page d'accueil"
+
+#: templates/base.html:24
+msgid "Accessibility"
+msgstr "Accessibilité"
+
+#: templates/base.html:27
+msgid "Increase Font Size"
+msgstr "Augmenter la taille de la police"
+
+#: templates/base.html:28 templates/base.html:29
+msgid "Decrease Font Size"
+msgstr "Réduire la taille de la police"
+
+#: templates/base.html:35
+msgid "App Management"
+msgstr "Gestion des applications"
+
+#, fuzzy
+#~| msgid "Name"
+#~ msgid "Name:"
+#~ msgstr "Nom"
+
+#, fuzzy
+#~| msgid "APK File"
+#~ msgid "APK File:"
+#~ msgstr "Fichier APK"
+
+#, fuzzy
+#~| msgid "First Screenshot"
+#~ msgid "First Screenshot:"
+#~ msgstr "Première capture d'écran"
+
+#, fuzzy
+#~| msgid "Second Screenshot"
+#~ msgid "Second Screenshot:"
+#~ msgstr "deuxième capture d'écran"
+
+#, fuzzy
+#~| msgid "Video Recording"
+#~ msgid "Video Recording:"
+#~ msgstr "Enregistrement vidéo"
+
+#, fuzzy
+#~| msgid "UI Hierarchy"
+#~ msgid "UI Hierarchy:"
+#~ msgstr "Hiérarchie de l'interface utilisateur"
+
+#, fuzzy
+#~| msgid "Created At"
+#~ msgid "Created At:"
+#~ msgstr "Créé à"
+
+#, fuzzy
+#~| msgid "Updated At"
+#~ msgid "Updated At:"
+#~ msgstr "Mis à jour à"

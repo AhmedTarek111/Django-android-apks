@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% bootstrap_css %}
@@ -8,7 +9,7 @@
 
 {% block content %}
 <div class="container">
-  <h4 class="text-center mb-3">Login  </h4>
+  <h4 class="text-center mb-3">{% trans "Login" %}  </h4>
     <form  method="post" class="form p-5 border rounded">
       {% csrf_token %}
 
@@ -17,7 +18,7 @@
       {% bootstrap_button button_type="reset" content="Cancel" %}
       <div class="d-flex justify-content-end">
 
-        <a href="{% url 'sign-up'%}" class="btn btn-success">Sign Up</a>
+        <a href="{% url 'sign-up'%}" class="btn btn-success">{% trans "Sign Up" %}</a>
       </div>
     </form>
 </div>

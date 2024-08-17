@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% bootstrap_css %}
@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <div class="card shadow-sm">
         <div class="card-header bg-secondary text-white text-center">
-          <h4>Add New APK</h4>
+          <h4>{% trans "Add New APK" %}</h4>
         </div>
         <div class="card-body">
           <form method="post" enctype="multipart/form-data" class="p-3">
