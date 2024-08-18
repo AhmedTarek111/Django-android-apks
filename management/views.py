@@ -1,12 +1,19 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect ,get_object_or_404,HttpResponse
 from django.views.generic import ListView , CreateView , UpdateView , DeleteView , DetailView
 from django.contrib.auth.models import User
 from .models import App
-from .forms import AppForm
+from .forms import AppForm,AppCreateUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import translation
+from .tasks import appium_test_app
 from django.conf import settings
-
+from appium import webdriver
+from appium.options.android import UiAutomator2Options
+import os
+import subprocess
+import time
+from django.core.files.base import ContentFile
+import base64
 
 class AppList(LoginRequiredMixin,ListView):
     model = App
@@ -23,7 +30,7 @@ class AppList(LoginRequiredMixin,ListView):
 class AppCreate(LoginRequiredMixin,CreateView):
     model = App
     template_name = 'app/app_create.html'
-    form_class = AppForm
+    form_class = AppCreateUpdateForm
     success_url = '/'
     def form_valid(self, form):
         form.instance.uploaded_by = self.request.user
@@ -32,7 +39,7 @@ class AppCreate(LoginRequiredMixin,CreateView):
 class AppUpdate(LoginRequiredMixin,UpdateView):
     model = App
     template_name = 'app/app_update.html'
-    form_class = AppForm
+    form_class = AppCreateUpdateForm
     success_url = '/'
 
     
@@ -51,5 +58,58 @@ class AppDetail(LoginRequiredMixin,DetailView):
 def changeLanguage(request):
     language = request.POST['language']
     translation.activate(language)
-    response = redirect('/')  
-    return response
+    return redirect('/')  
+
+# def run_test(request,app_id):
+#     appium_test_app.delay(app_id)
+#     return redirect('/')
+
+def run_test(request, app_id):
+    # Fetch the app from the database
+    app = get_object_or_404(App, id=app_id, uploaded_by=request.user)
+
+    # Set up Appium options
+    options = UiAutomator2Options()
+    options.platform_name = "Android"
+    options.platform_version = "15.0"  # Ensure this matches your emulator version
+    options.device_name = "emulator-5554"  # Ensure this matches your emulator device name
+    options.app = app.apk_file.path  # Ensure this path is correct
+    options.no_reset = True
+    options.auto_grant_permissions = True
+
+    driver = None
+    video_filename = f'recording_{app_id}.mp4'
+    f_screenshot_name = f"f_{app.name}_screenshot_{app.id}.png"
+    s_screenshot_name = f"s_{app.name}_screenshot_{app.id}.png"
+    try:
+        # connect to driver 
+        driver = webdriver.Remote(command_executor='http://localhost:4723', options=options)
+        print("Driver connected successfully")
+        
+        # Start recording video
+        driver.start_recording_screen()
+        print("Started recording")
+        time.sleep(5)
+        # taking first screenshot
+        f_screenshot = driver.get_screenshot_as_png()
+        print('Screen shot 1 Done')
+
+        # Stop recording video
+        video_base64 = driver.stop_recording_screen()
+        print("Stopped recording")
+
+        # save the video in db 
+        video_file = ContentFile(base64.b64decode(video_base64), video_filename)
+        app.video_recording.save(video_filename, video_file, save=True)        
+        # save f screenshot in db
+        f_screenshot_file = ContentFile(f_screenshot , f_screenshot_name)
+        app.first_screen_shot.save(f_screenshot_name,f_screenshot_file ,save=True)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    finally:
+        if driver:
+            driver.quit()
+        print("Driver disconnected")
+
+    return HttpResponse("Appium test completed successfully!")
