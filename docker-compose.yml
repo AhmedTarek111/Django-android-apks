@@ -55,15 +55,18 @@ services:
     image: appium/appium
     container_name: appium-server
     ports:
-      - "4723:4723"
+      - "4723:4723"   # Appium server port
+      - "5037:5037"   # ADB port
     networks:
       - backend-network
     restart: always
     environment:
       - APPIUM_LOG_LEVEL=info
+      - ADB_SERVER_HOST=host.docker.internal  # Point to the local ADB server
 
 volumes:
   mysql_data:
 
 networks:
   backend-network:
+    driver: bridge

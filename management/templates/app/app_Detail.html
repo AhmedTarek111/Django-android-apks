@@ -18,36 +18,32 @@
             </div>
             
             <div class="mb-3">
-                {% if  apk.first_screen_shot %}  
-                    <strong>{% trans "First Screenshot" %}:</strong><br>
-                    <img src="{{ apk.first_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+                <strong>{% trans "First Screenshot" %}:</strong><br>
+                {% if apk.first_screen_shot %}
+                    <img src="{{ apk.first_screen_shot.url }}" class="img-fluid rounded img-thumbnail" alt="{% trans "First Screenshot" %}" style="max-width: 200px;">
                 {% else %}
-                    <strong>{% trans "First Screenshot" %}:</strong><br>
-                    <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded" alt="{% trans "First Screenshot" %}">
+                    <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded img-thumbnail" alt="{% trans "First Screenshot" %}" style="max-width: 200px;">
                 {% endif %}
-
             </div>
 
             <div class="mb-3">
+                <strong>{% trans "Second Screenshot" %}:</strong><br>
                 {% if apk.second_screen_shot %}
-                <strong>{% trans "Second Screenshot" %}:</strong><br>
-                <img src="{{ apk.second_screen_shot.url }}" class="img-fluid rounded" alt="{% trans "Second Screenshot" %}">
+                    <img src="{{ apk.second_screen_shot.url }}" class="img-fluid rounded img-thumbnail" alt="{% trans "Second Screenshot" %}" style="max-width: 200px;">
                 {% else %}
-                <strong>{% trans "Second Screenshot" %}:</strong><br>
-                <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded" alt="{% trans "Second Screenshot" %}">
+                    <img src="{% static 'site-static-imgs/no-image.jpg' %}" class="img-fluid rounded img-thumbnail" alt="{% trans "Second Screenshot" %}" style="max-width: 200px;">
                 {% endif %}
             </div>
 
             <div class="mb-3">
+                <strong>{% trans "Video Recording" %}:</strong><br>
                 {% if apk.video_recording %}
-                <strong>{% trans "Video Recording" %}:</strong><br>
-                <video class="w-100" controls>
-                    <source src="{{ apk.video_recording.url }}" type="video/mp4">
-                    {% trans "Your browser does not support the video tag." %}
-                </video>
+                    <video class="w-100 img-thumbnail" controls style="max-width: 300px;">
+                        <source src="{{ apk.video_recording.url }}" type="video/mp4">
+                        {% trans "Your browser does not support the video tag." %}
+                    </video>
                 {% else %}
-                <strong>{% trans "Video Recording" %}:</strong><br>
-                <img src="{% static 'site-static-imgs/no-video-available.webp' %}" class="img-fluid rounded" alt="{% trans "Video Recording" %}">
+                    <img src="{% static 'site-static-imgs/no-video-available.webp' %}" class="img-fluid rounded img-thumbnail" alt="{% trans "Video Recording" %}" style="max-width: 300px;">
                 {% endif %}
             </div>
 

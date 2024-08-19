@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'management',
-    'django_celery_results',
+    # 'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -80,28 +80,28 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 # this db settings for the local 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django-db',  
-        'USER': 'root',        
-        'PASSWORD': 'ahmed',    
-        'HOST': 'localhost',            
-        'PORT': '3306',                 
-        }
-    }
-
-# this db settings for the docker 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'MYSQL',  
-#         'USER': 'root',  
-#         'PASSWORD': 'ahmed',  
-#         'HOST': 'sqldb',  
-#         'PORT': '3306',  
+#         'NAME': 'django-db',  
+#         'USER': 'root',        
+#         'PASSWORD': 'ahmed',    
+#         'HOST': 'localhost',            
+#         'PORT': '3306',                 
+#         }
 #     }
-# }
+
+# this db settings for the docker 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'MYSQL',  
+        'USER': 'root',  
+        'PASSWORD': 'ahmed',  
+        'HOST': 'sqldb',  
+        'PORT': '3306',  
+    }
+}
 
 
 
@@ -165,17 +165,19 @@ AUTHENTICATION_BACKENDS = [
 LOGIN_REDIRECT_URL = "/"
 
 LOCALE_PATHS = ['locale']
-CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
-CELERY_RESULT_BACKEND="redis://127.0.0.1:6379/0"
+
+# CELERY_BROKER_URL = "redis://localhost:6379/0"
 broker_connection_retry_on_startup = True
 
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_CACHE_BACKEND = 'default'
+# CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Use Redis container name and port
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://Myredis:6379/0'  # Use Redis container name and port
+CELERY_RESULT_BACKEND = 'redis://Myredis:6379/0'
 
-# django setting.
+
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': 'redis://Myredis:6379/1',  # Use Redis container name and port
     }
 }
