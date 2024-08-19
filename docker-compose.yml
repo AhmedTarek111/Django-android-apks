@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   backend:
     container_name: django-backend
@@ -21,6 +23,21 @@ services:
     networks:
       - backend-network
 
+  Myredis:
+    image: redis:7.0.14-alpine3.18
+    container_name: MyRedisServer
+    networks:
+      - backend-network
+
+  celery:
+    build: .
+    command: celery -A project worker --loglevel=info
+    depends_on:
+      - Myredis
+      - backend
+    networks:
+      - backend-network
+
   sqldb:
     image: mysql:latest
     restart: always
@@ -33,6 +50,17 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - backend-network
+
+  appium:
+    image: appium/appium
+    container_name: appium-server
+    ports:
+      - "4723:4723"
+    networks:
+      - backend-network
+    restart: always
+    environment:
+      - APPIUM_LOG_LEVEL=info
 
 volumes:
   mysql_data:
