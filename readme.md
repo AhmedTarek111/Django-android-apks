@@ -63,7 +63,7 @@ git clone https://github.com/AhmedTarek111/Django-android-apks.git
 ### Enter project Folder
 
 ```bash
-cd  Django-android-apks/project
+cd  Django-android-apks
  ```
 ### Install Dependencies
 
