@@ -1,3 +1,5 @@
+Here’s the updated README template with the additional installation instructions:
+
 ---
 
 # Django Project with Appium Integration
@@ -43,20 +45,31 @@ This project is a Django web application with integrated Appium automated testin
   - Run a virtual Android device using Android Studio.
   - Verify device connection with: `adb devices`
 
-### Clone the Repository
 
-```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
-```
 
-### Create a Virtual Environment (Optional)
+### Create a Virtual Environment 
 
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
+### path to clone the repository
 
+```bash
+cd ..
+ ```
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/AhmedTarek111/Django-android-apks.git
+cd Django-android-apks
+```
+### Enter project Folder
+
+```bash
+cd  Django-android-apks/project
+ ```
 ### Install Dependencies
 
 ```bash
@@ -70,12 +83,6 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### Collect Static Files
-
-```bash
-python manage.py collectstatic
-```
-
 ### Running the Project Locally
 
 ```bash
@@ -83,7 +90,7 @@ python manage.py runserver
 ```
 
 ### Running with Docker
-
+### Ensure the appium and the android device is running 
 #### Build and Start Containers
 
 ```bash
