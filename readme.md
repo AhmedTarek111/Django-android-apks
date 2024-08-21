@@ -1,7 +1,3 @@
-Here’s the updated README template with the additional installation instructions:
-
----
-
 # Django Project with Appium Integration
 
 ## Overview
@@ -63,7 +59,6 @@ cd ..
 
 ```bash
 git clone https://github.com/AhmedTarek111/Django-android-apks.git
-cd Django-android-apks
 ```
 ### Enter project Folder
 
