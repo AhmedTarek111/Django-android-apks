@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap5',
     'management',
-    # 'django_celery_results',
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -52,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -92,6 +91,7 @@ DATABASES = {
     }
 
 # this db settings for the docker 
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
@@ -169,15 +169,15 @@ LOCALE_PATHS = ['locale']
 # CELERY_BROKER_URL = "redis://localhost:6379/0"
 broker_connection_retry_on_startup = True
 
-# CELERY_BROKER_URL = 'redis://localhost:6379/0'  # Use Redis container name and port
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-CELERY_BROKER_URL = 'redis://Myredis:6379/0'  # Use Redis container name and port
-CELERY_RESULT_BACKEND = 'redis://Myredis:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# CELERY_BROKER_URL = 'redis://Myredis:6379/0'  
+# CELERY_RESULT_BACKEND = 'redis://Myredis:6379/0'
 
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://Myredis:6379/1',  # Use Redis container name and port
+        'LOCATION': 'redis://localhost:6379/1',  
     }
 }

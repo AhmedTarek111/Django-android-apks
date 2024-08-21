@@ -28,12 +28,20 @@ def appium_script(app_id):
     s_screenshot_name = f"s_{app.name}_screenshot_{app.id}.png"
 
     try:
+        #  this for docker 
         driver = webdriver.Remote(
             command_executor='http://host.docker.internal:4723',  
             options=options
         )
         print("Driver connected successfully")
-
+    except:
+        # this for local host
+        options.app = options.app = app.apk_file.path 
+        driver = webdriver.Remote(
+            command_executor='http://localhost:4723',  
+            options=options
+        )
+    try:
         driver.start_recording_screen()
         print("Started recording")
         time.sleep(5)
