@@ -52,7 +52,7 @@ venv\Scripts\activate
 ### path to clone the repository
 
 ```bash
-cd ..
+cd venv
  ```
 
 ### Clone the Repository
