@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-21 06:13+0300\n"
+"POT-Creation-Date: 2024-08-21 20:42+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: accounts/templates/registration/login-again.html:6
+msgid "Logged Out Successfully"
+msgstr "Déconnexion réussie"
+
+#: accounts/templates/registration/login-again.html:7
+msgid "You have been logged out. Return to the login page to sign in again"
+msgstr "Vous avez été déconnecté. Revenez à la page de connexion pour vous reconnecter"
+
+#: accounts/templates/registration/login-again.html:8
+#, fuzzy
+#| msgid "Login"
+msgid "Login Again"
+msgstr "Se connecter"
+
 #: accounts/templates/registration/login.html:12
 msgid "Login"
 msgstr "Se connecter"
@@ -25,19 +39,6 @@ msgstr "Se connecter"
 #: accounts/templates/registration/login.html:21
 msgid "Sign Up"
 msgstr "S'inscrire"
-
-#: accounts/templates/registration/logout.html:6
-msgid "Are you sure to Logout"
-msgstr "Etes-vous sûr de vous déconnecter"
-
-#: accounts/templates/registration/logout.html:9 templates/base.html:23
-msgid "Logout"
-msgstr "Déconnexion"
-
-#: accounts/templates/registration/logout.html:10
-#: management/templates/app/app_update.html:27
-msgid "Cancel"
-msgstr "Annuler"
 
 #: management/models.py:7 management/templates/app/app_Detail.html:12
 #: management/templates/app/home.html:23
@@ -127,9 +128,13 @@ msgstr "Ajouter un nouveau APK"
 msgid "Are you sure to Delete"
 msgstr "Etes-vous sûr de vouloir supprimer"
 
-#: management/templates/app/app_update.html:26
+#: management/templates/app/app_update.html:27
 msgid "Save"
 msgstr "Sauvegarder"
+
+#: management/templates/app/app_update.html:28
+msgid "Cancel"
+msgstr "Annuler"
 
 #: management/templates/app/home.html:9
 msgid "Welcome"
@@ -183,6 +188,10 @@ msgstr "Gestion des applications"
 msgid "Home"
 msgstr "Page d'accueil"
 
+#: templates/base.html:23
+msgid "Logout"
+msgstr "Déconnexion"
+
 #: templates/base.html:26
 msgid "Accessibility"
 msgstr "Accessibilité"
@@ -198,6 +207,9 @@ msgstr "Réduire la taille de la police"
 #: templates/base.html:37
 msgid "App Management"
 msgstr "Gestion des applications"
+
+#~ msgid "Are you sure to Logout"
+#~ msgstr "Etes-vous sûr de vous déconnecter"
 
 #, fuzzy
 #~| msgid "Uploaded by"

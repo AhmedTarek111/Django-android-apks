@@ -2,20 +2,10 @@ from django.shortcuts import render,redirect ,get_object_or_404,HttpResponse
 from django.views.generic import ListView , CreateView , UpdateView , DeleteView , DetailView
 from django.contrib.auth.models import User
 from .models import App
-from .forms import AppForm,AppCreateUpdateForm
+from .forms import AppCreateUpdateForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils import translation
-from django.conf import settings
-from appium import webdriver
-from appium.options.android import UiAutomator2Options
-import os
-import subprocess
-import time
-from django.core.files.base import ContentFile
-import base64
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
 from .tasks import appium_script
 class AppList(LoginRequiredMixin,ListView):
     model = App
@@ -62,11 +52,7 @@ def changeLanguage(request):
     translation.activate(language)
     return redirect('/')  
 
-# def run_test(request,app_id):
-#     appium_test_app.delay(app_id)
-#     return redirect('/')
 
 def run_test(request, app_id):
-    print(App.objects.get(id=app_id).apk_file.path)
-    appium_script.delay(app_id)  # Call the Celery task
+    appium_script.delay(app_id)  
     return redirect('/')
