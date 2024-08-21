@@ -13,12 +13,12 @@ from django.shortcuts import get_object_or_404
 @shared_task
 def appium_script(app_id):
     app = get_object_or_404(App, id=app_id)
-
+    apkname = app.apk_file.path.split('/')[-1]
     options = UiAutomator2Options()
     options.platform_name = "Android"
     options.platform_version = "15.0"
     options.device_name = "emulator-5554"
-    options.app = app.apk_file.path
+    options.app = fr'C:\docker_share\apks\{apkname}'
     options.no_reset = True
     options.auto_grant_permissions = True
 

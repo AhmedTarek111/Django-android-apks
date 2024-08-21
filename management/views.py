@@ -67,5 +67,6 @@ def changeLanguage(request):
 #     return redirect('/')
 
 def run_test(request, app_id):
+    print(App.objects.get(id=app_id).apk_file.path)
     appium_script.delay(app_id)  # Call the Celery task
     return redirect('/')

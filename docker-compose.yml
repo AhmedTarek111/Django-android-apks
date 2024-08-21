@@ -22,6 +22,10 @@ services:
       - DB_PORT=3306
     networks:
       - backend-network
+    volumes:
+      - ./media:/app/media
+      - C:\docker_share:/app/media
+
 
   Myredis:
     image: redis:7.0.14-alpine3.18
@@ -57,12 +61,12 @@ services:
     ports:
       - "4723:4723"   # Appium server port
       - "5037:5037"   # ADB port
-    networks:
-      - backend-network
+    network_mode: "host"  # Use host network mode
     restart: always
     environment:
       - APPIUM_LOG_LEVEL=info
-      - ADB_SERVER_HOST=host.docker.internal  # Point to the local ADB server
+    command: >
+      bash -c "appium"
 
 volumes:
   mysql_data:
