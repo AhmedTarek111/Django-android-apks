@@ -47,7 +47,7 @@ This project is a Django web application with integrated Appium automated testin
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate
 ```
 ### path to clone the repository
 
