@@ -58,18 +58,6 @@ services:
     networks:
       - backend-network
 
-  appium:
-    image: appium/appium
-    container_name: appium-server
-    ports:
-      - "4723:4723"   
-      - "5037:5037"  
-    network_mode: "host" 
-    restart: always
-    environment:
-      - APPIUM_LOG_LEVEL=info
-    command: >
-      bash -c "appium"
 
 volumes:
   mysql_data:
