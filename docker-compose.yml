@@ -39,6 +39,9 @@ services:
     depends_on:
       - Myredis
       - backend
+    volumes:
+      - ./media:/app/media  
+      - /c/docker_share:/app/media
     networks:
       - backend-network
 
@@ -59,9 +62,9 @@ services:
     image: appium/appium
     container_name: appium-server
     ports:
-      - "4723:4723"   # Appium server port
-      - "5037:5037"   # ADB port
-    network_mode: "host"  # Use host network mode
+      - "4723:4723"   
+      - "5037:5037"  
+    network_mode: "host" 
     restart: always
     environment:
       - APPIUM_LOG_LEVEL=info
