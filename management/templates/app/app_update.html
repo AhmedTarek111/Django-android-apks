@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% load django_bootstrap5 %}
 
 {% bootstrap_css %}
 {% bootstrap_javascript %}
 
 {% bootstrap_messages %}
+
 
 {% block content %}
 <div class="container mt-5">
@@ -21,9 +22,10 @@
 
              {% bootstrap_form form layout='horizontal' %}
             
-             <div class="d-flex justify-content-end mt-3">
-              {% bootstrap_button button_type="submit" content="Save" button_class="btn-success me-2" %}
-              {% bootstrap_button button_type="reset" content="Cancel" button_class="btn-secondary" %}
+             <div class="d-flex justify-content-end mt-3"> 
+              
+              <button class="btn btn-success me-2">{% trans "Save" %}</button>
+              <button class="btn btn-secondary">{% trans "Cancel" %}</button>
             </div>
           </form>
         </div>

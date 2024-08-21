@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-17 20:04+0300\n"
+"POT-Creation-Date: 2024-08-21 06:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,7 @@ msgid "Logout"
 msgstr "Déconnexion"
 
 #: accounts/templates/registration/logout.html:10
+#: management/templates/app/app_update.html:27
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -51,27 +52,24 @@ msgstr "Téléchargé par"
 msgid "APK File"
 msgstr "Fichier APK"
 
-#: management/models.py:10 management/templates/app/app_Detail.html:22
+#: management/models.py:10 management/templates/app/app_Detail.html:21
 #: management/templates/app/app_Detail.html:23
 #: management/templates/app/app_Detail.html:25
-#: management/templates/app/app_Detail.html:26
 msgid "First Screenshot"
 msgstr "Première capture d'écran"
 
-#: management/models.py:11 management/templates/app/app_Detail.html:33
+#: management/models.py:11 management/templates/app/app_Detail.html:30
+#: management/templates/app/app_Detail.html:32
 #: management/templates/app/app_Detail.html:34
-#: management/templates/app/app_Detail.html:36
-#: management/templates/app/app_Detail.html:37
 msgid "Second Screenshot"
 msgstr "deuxième capture d'écran"
 
-#: management/models.py:12 management/templates/app/app_Detail.html:43
-#: management/templates/app/app_Detail.html:49
-#: management/templates/app/app_Detail.html:50
+#: management/models.py:12 management/templates/app/app_Detail.html:39
+#: management/templates/app/app_Detail.html:46
 msgid "Video Recording"
 msgstr "Enregistrement vidéo"
 
-#: management/models.py:13 management/templates/app/app_Detail.html:55
+#: management/models.py:13 management/templates/app/app_Detail.html:51
 msgid "UI Hierarchy"
 msgstr "Hiérarchie de l'interface utilisateur"
 
@@ -79,12 +77,12 @@ msgstr "Hiérarchie de l'interface utilisateur"
 msgid "Screen Changed"
 msgstr "écran changé"
 
-#: management/models.py:15 management/templates/app/app_Detail.html:62
+#: management/models.py:15 management/templates/app/app_Detail.html:58
 #: management/templates/app/home.html:26
 msgid "Created At"
 msgstr "Créé à"
 
-#: management/models.py:16 management/templates/app/app_Detail.html:63
+#: management/models.py:16 management/templates/app/app_Detail.html:59
 #: management/templates/app/home.html:27
 msgid "Updated At"
 msgstr "Mis à jour à"
@@ -106,16 +104,16 @@ msgstr "Téléchargé par"
 msgid "Download APK"
 msgstr "Télécharger APK"
 
-#: management/templates/app/app_Detail.html:46
+#: management/templates/app/app_Detail.html:43
 msgid "Your browser does not support the video tag."
 msgstr "votre navigateur ne prend pas en charge la balise vidéo."
 
-#: management/templates/app/app_Detail.html:67
+#: management/templates/app/app_Detail.html:63
 #: management/templates/app/home.html:43
 msgid "Edit"
 msgstr "Modifier"
 
-#: management/templates/app/app_Detail.html:68
+#: management/templates/app/app_Detail.html:64
 #: management/templates/app/app_delete.html:11
 #: management/templates/app/home.html:44
 msgid "Delete"
@@ -128,6 +126,10 @@ msgstr "Ajouter un nouveau APK"
 #: management/templates/app/app_delete.html:8
 msgid "Are you sure to Delete"
 msgstr "Etes-vous sûr de vouloir supprimer"
+
+#: management/templates/app/app_update.html:26
+msgid "Save"
+msgstr "Sauvegarder"
 
 #: management/templates/app/home.html:9
 msgid "Welcome"
@@ -165,11 +167,11 @@ msgstr "Aucune application trouvée"
 msgid " please login first"
 msgstr "veuillez d'abord vous connecter"
 
-#: project/settings.py:139 templates/base.html:46
+#: project/settings.py:140 templates/base.html:46
 msgid "English"
 msgstr "Anglaise"
 
-#: project/settings.py:140 templates/base.html:47
+#: project/settings.py:141 templates/base.html:47
 msgid "French"
 msgstr "Français"
 
