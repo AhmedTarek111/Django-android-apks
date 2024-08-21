@@ -1,5 +1,3 @@
-Here’s the updated README template with the additional installation instructions:
-
 ---
 
 # Django Project with Appium Integration
